@@ -1,33 +1,33 @@
 //<script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script>
-//CATEGORY-FILTERING JQUERY AJAX CALLS, KATEGORİ FİLTRELEME JQUERY AJAX İSTEKLERİ, ONCHANGE >> LOAD
+//CATEGORY-FILTERING JQUERY AJAX CALLS, KATEGORÄ° FÄ°LTRELEME JQUERY AJAX Ä°STEKLERÄ°, ONCHANGE >> LOAD
 $(document).ready(function () {
     $("#Kategori").change(function () {
       var kategori = $("#Kategori").val();
-       kategori = kategori.replace(/\s+/g, '%20') // Bu ifade boşlukları %20 ile değiştirir. Aksi halde boşluklu olarak bir değişken ile istek(query) yapıldığında( Soğuk Algınlığı gibi) dönüşüm JQUERY ile otomatik yapılmıyor.
+       kategori = kategori.replace(/\s+/g, '%20') // Bu ifade boÅŸluklarÄ± %20 ile deÄŸiÅŸtirir. Aksi halde boÅŸluklu olarak bir deÄŸiÅŸken ile istek(query) yapÄ±ldÄ±ÄŸÄ±nda( SoÄŸuk AlgÄ±nlÄ±ÄŸÄ± gibi) dÃ¶nÃ¼ÅŸÃ¼m JQUERY ile otomatik yapÄ±lmÄ±yor.
        //alert(kategori); // Test et.
-       $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif"/><span class="yukleniyorYazisi">Yükleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Kategori=' + kategori);
-       //Tüm ürünler seçilidğinde "" null değeri gönderilir ve bu Controller(ya da Web API) fonksiyonları tarafından algılanarak tüm ürünler olarak sorgu yapılır.
+       $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif"/><span class="yukleniyorYazisi">YÃ¼kleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Kategori=' + kategori);
+       //TÃ¼m Ã¼rÃ¼nler seÃ§ilidÄŸinde "" null deÄŸeri gÃ¶nderilir ve bu Controller(ya da Web API) fonksiyonlarÄ± tarafÄ±ndan algÄ±lanarak tÃ¼m Ã¼rÃ¼nler olarak sorgu yapÄ±lÄ±r.
     });
 });
        
-//PAGING-SYSTEM JQUERY AJAX CALLS, SAYFALAYICI VERSIYON 2 JQUERY AJAX İSTEKLERİ ONCLICK >> LOAD
-//SayfalayiciHTMLRendererHelper sınıfı ÜZERİNDE  yeniLink.Attributes.Add("onclick", "SayfayaGit("+sayfa+")"); İLE BAŞARILDI
+//PAGING-SYSTEM JQUERY AJAX CALLS, SAYFALAYICI VERSIYON 2 JQUERY AJAX Ä°STEKLERÄ° ONCLICK >> LOAD
+//SayfalayiciHTMLRendererHelper sÄ±nÄ±fÄ± ÃœZERÄ°NDE  yeniLink.Attributes.Add("onclick", "SayfayaGit("+sayfa+")"); Ä°LE BAÅARILDI
 
 var SayfayaGit = function (sayfaNo, kategori) {
-    kategori = kategori.replace(/\s+/g, '%20') // Bu ifade boşlukları %20 ile değiştirir. Aksi halde boşluk olarak istek yapıldığında dönüşüm JQUERY ile otomatik yapılmadığı için boş sonuç döner.
-    //alert(kategori); // Test et. Başarılı
-    $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif" /><span class="yukleniyorYazisi">Yükleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Kategori=' + kategori + '&SayfaNo=' + sayfaNo);
-    //Tüm ürünler seçilidğinde "" null değeri gönderilir ve bu Controller(ya da Web API) fonksiyonları tarafından algılanarak tüm ürünler olarak sorgu yapılır.
+    kategori = kategori.replace(/\s+/g, '%20') // Bu ifade boÅŸluklarÄ± %20 ile deÄŸiÅŸtirir. Aksi halde boÅŸluk olarak istek yapÄ±ldÄ±ÄŸÄ±nda dÃ¶nÃ¼ÅŸÃ¼m JQUERY ile otomatik yapÄ±lmadÄ±ÄŸÄ± iÃ§in boÅŸ sonuÃ§ dÃ¶ner.
+    //alert(kategori); // Test et. BaÅŸarÄ±lÄ±
+    $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif" /><span class="yukleniyorYazisi">YÃ¼kleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Kategori=' + kategori + '&SayfaNo=' + sayfaNo);
+    //TÃ¼m Ã¼rÃ¼nler seÃ§ilidÄŸinde "" null deÄŸeri gÃ¶nderilir ve bu Controller(ya da Web API) fonksiyonlarÄ± tarafÄ±ndan algÄ±lanarak tÃ¼m Ã¼rÃ¼nler olarak sorgu yapÄ±lÄ±r.
 }
 
-//ARAMA KUTUCUĞU JQUERY AJAX INPUT EVENT(herhangi bir değer girilmesi VE DE SİLİNMESİ DAHİL) >> LOAD
+//TEXT-BOX AUTO-SEARCH, ARAMA KUTUCUÄU JQUERY AJAX INPUT EVENT(herhangi bir deÄŸer girilmesi VE DE SÄ°LÄ°NMESÄ° DAHÄ°L) >> LOAD
 $(document).ready(function () {
    $("#aramaKutucugu").bind('input', function () {
        var aranacakDeger = $("#aramaKutucugu").val();
-       // sayfa = sayfa.replace(/\s+/g, '%20') // Bu ifade boşlukları %20 ile değiştirir. Aksi halde boşluk olarak istek yapıldığında dönüşüm JQUERY ile otomatik yapılmıyor.
-       $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif"/><span class="yukleniyorYazisi">Yükleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Arama=' + aranacakDeger);
+       // sayfa = sayfa.replace(/\s+/g, '%20') // Bu ifade boÅŸluklarÄ± %20 ile deÄŸiÅŸtirir. Aksi halde boÅŸluk olarak istek yapÄ±ldÄ±ÄŸÄ±nda dÃ¶nÃ¼ÅŸÃ¼m JQUERY ile otomatik yapÄ±lmÄ±yor.
+       $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif"/><span class="yukleniyorYazisi">YÃ¼kleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Arama=' + aranacakDeger);
     });
 });
 
