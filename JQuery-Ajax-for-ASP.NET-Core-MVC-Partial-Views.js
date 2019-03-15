@@ -1,7 +1,7 @@
 //<script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script>
-//CATEGORY-FILTERING JQUERY AJAX CALLS, KATEGORİ FİLTRELEME JQUERY AJAX İSTEKLERİ, ONCHANGE >> LOAD
+//CATEGORY FILTERING JQUERY AJAX CALLS, KATEGORİ FİLTRELEME JQUERY AJAX İSTEKLERİ, ONCHANGE >> LOAD
 $(document).ready(function () {
     $("#Kategori").change(function () {
       var kategori = $("#Kategori").val();
@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 });
        
-//PAGING-SYSTEM JQUERY AJAX CALLS, SAYFALAYICI VERSIYON 2 JQUERY AJAX İSTEKLERİ ONCLICK >> LOAD
+//PAGING SYSTEM JQUERY AJAX CALLS, SAYFALAYICI VERSIYON 2 JQUERY AJAX İSTEKLERİ ONCLICK >> LOAD
 //SayfalayiciHTMLRendererHelper sınıfı ÜZERİNDE  yeniLink.Attributes.Add("onclick", "SayfayaGit("+sayfa+")"); İLE BAŞARILDI
 
 var SayfayaGit = function (sayfaNo, kategori) {
@@ -22,7 +22,7 @@ var SayfayaGit = function (sayfaNo, kategori) {
     //Tüm ürünler seçilidğinde "" null değeri gönderilir ve bu Controller(ya da Web API) fonksiyonları tarafından algılanarak tüm ürünler olarak sorgu yapılır.
 }
 
-//TEXT-BOX AUTO-SEARCH, ARAMA KUTUCUĞU JQUERY AJAX INPUT EVENT(herhangi bir değer girilmesi VE DE SİLİNMESİ DAHİL) >> LOAD
+//TEXTBOX AUTOSEARCH, AN EVENT LISTENING FOR CHANGE, ARAMA KUTUCUĞU JQUERY AJAX INPUT EVENT(herhangi bir değer girilmesi VE DE SİLİNMESİ DAHİL) >> LOAD
 $(document).ready(function () {
    $("#aramaKutucugu").bind('input', function () {
        var aranacakDeger = $("#aramaKutucugu").val();
