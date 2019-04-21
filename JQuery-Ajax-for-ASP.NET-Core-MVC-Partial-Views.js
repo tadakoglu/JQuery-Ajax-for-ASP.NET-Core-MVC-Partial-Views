@@ -30,5 +30,10 @@ $(document).ready(function () {
        $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif"/><span class="yukleniyorYazisi">Yükleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Arama=' + aranacakDeger);
     });
 });
+ 
+$.get('@Url.Action("GetData", "Home")', {id : 1}, function(content){
+  $("#dynamicContentContainer").html(content);
+});
+
 
 </script>
