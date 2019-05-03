@@ -32,7 +32,7 @@ $(document).ready(function () {
 });
  
 $.get('@Url.Action("GetData", "Home")', {id : 1}, function(content){
-  $("#dynamicContentContainer").html(content);
+  $("#dynamicContentContainer").html(content); // html function loads data from content to selected element with $
 });
 
 
